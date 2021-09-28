@@ -34,12 +34,12 @@ for (i in 3:nrow(pf1)) {
 
   if (length(itype) > 0) {
     
-    if (itype==2 || itype == 4 || itype == 6) { #these are species related parameters
+    if (itype==2 || itype == 4 || itype == 6 || itype == 8) { #these are species related parameters. AC added itype 8
       iloop <- ncols
     }
     
     for (j in 1:iloop) {
-      if (itype==2 || itype == 4) { #these are species related parameters, so we put the species in the codename
+      if (itype==2 || itype == 4 || itype == 8) { #these are species related parameters, so we put the species in the codename
         codename <- paste(VariableNames[iline,3],"=",pf1[1,j+1],sep="")
       } else if (itype==6) {
         mastergroup <- pf1[1,j+1]   #we don't need the master group until we get a new one, so store the species in it for now
