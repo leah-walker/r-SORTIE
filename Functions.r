@@ -7,7 +7,7 @@ FindFileLine <- function(rf,itype, varname, vargroup, varmaster) {
   lng <- 0
   
  
-  if (itype==1 || itype == 2 || itype == 5) {
+  if (itype==1 || itype == 2 || itype == 5 || itype == 8) {
     #Basic find: the variable is unique
     ln1 <- grep(varname,rf)
     
