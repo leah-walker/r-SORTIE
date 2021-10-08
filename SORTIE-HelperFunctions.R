@@ -287,6 +287,27 @@ old.create.SORTIE.DBH.classes <- function(tree.dat,num.meas,sizeClasses,SORTIE.t
 }
 
 
+##helper function to read in .kmz files
+read_keyhole <- function(file) {
+  # get file extension
+  ext <- strsplit(basename(file), split = '\\.')[[1]][-1]
+  # if kml
+  if (ext == 'kml') {
+    layers <- st_layers(file)$name
+    if (length(layers) > 1) {
+      return(Reduce('rbind', lapply(layers, sf::read_sf, dsn = file)))
+    }
+    return(read_sf(file))
+  } else {
+    target_file <- '.temp.kml.zip'
+    fs::file_copy(file, target_file, overwrite = T)
+    unzip(target_file, overwrite = T)
+    sf_out <- read_sf('doc.kml')
+    fs::file_delete(target_file)
+    fs::file_delete('doc.kml')
+    return(sf_out)
+  }
+}
 
 
 
