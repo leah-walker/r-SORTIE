@@ -1,0 +1,6 @@
+Added itype 8 
+Similar to 4, but don't need to go into the subgroup, because the tag is unique
+<Plant12>
+		<gr_nmpgVal species="Interior_Spruce">4.0152016</gr_nmpgVal>
+
+Added chunks to allow extraction and parsing of specific files (not entire folder)
