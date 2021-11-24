@@ -240,8 +240,7 @@ ParseXML <- function(xmlname)
     
     
   # Fix format
-    library(tidyr)
-    sprd <- long_f %>% spread(colnames, values)
+    sprd <- long_f %>% tidyr::spread(colnames, values)
   
     #plot(sprd$X, sprd$Y, pch='.', col=as.factor(sprd$tree_species))
     
